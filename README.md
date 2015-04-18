@@ -1,21 +1,21 @@
 # barefoot-cesium
-Cesium to go in a second by "cp ~/bin/cesium.html ."
+Cesium to go in a second.
 
 # how to install
 ```zsh
-$ mkdir -p ~/bin
+$ # mkdir -p ~/bin
 $ cd ~/bin
 $ wget http://handygeospatial.github.io/barefoot-cesium/cesium.html
 ```
 
 # how to use
 ```zsh
-$ mkdir -p /your/own/directory
-$ cd /your/own/directory
+$ # mkdir -p /your/own/directory
+$ # cd /your/own/directory
 $ cp ~/bin/cesium.html index.html
-$ vi index.html
-$ python -m SimpleHTTPServer &
-$ open http://localhost:8000
+$ # vi index.html
+$ # python -m SimpleHTTPServer &
+$ # open http://localhost:8000
 ```
 
 # trouble shoting
