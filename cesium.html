@@ -4,19 +4,38 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-<title>Hello World!</title>
+<title></title>
 <script src="http://handygeospatial.github.io/barefoot-cesium/Build/Cesium/Cesium.js"></script>
+<script src="http://t.tilemap.jp.s3.amazonaws.com/cesium/JapanGSIImageryProvider.js"></script>
+<script src="http://t.tilemap.jp.s3.amazonaws.com/cesium/JapanGSITerrainProvider.js"></script>
 <style>
 @import url(http://handygeospatial.github.io/barefoot-cesium/Build/Cesium/Widgets/widgets.css);
-html, body, #cesiumContainer {
-width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
-}
+html, body, #cesiumContainer {width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;}
 </style>
 </head>
 <body>
 <div id="cesiumContainer"></div>
 <script>
-var viewer = new Cesium.Viewer('cesiumContainer');
+var viewer = new Cesium.Viewer('cesiumContainer', {
+  imageryProvider: new Cesium.OpenStreetMapImageryProvider({
+    url: 'http://cyberjapandata.gsi.go.jp/xyz/std/',
+    credit: new Cesium.Credit('国土地理院')}),
+  terrainProvider: new Cesium.JapanGSITerrainProvider({}),
+  animation: false, baseLayerPicker: false, fullscreenButton: true,
+  geocoder: false, homeButton: false, infoBox: false,
+  sceneModePicker: true, selectionIndicator: true,
+  timeline: false, navigationHelpButton: false, 
+  navigationInstructionsInitiallyVisible: false,
+  scene3DOnly: false, useDefaultRenderLoop: true,
+  showRenderLoopErrors: false, automaticallyTrackDataSourceClocks: true,
+  orderIndependentTranslucency: true
+});
+viewer.camera.flyTo({
+  destination : Cesium.Cartesian3.fromDegrees(138.7, 35.4, 6000000.0)});
+viewer.extend(Cesium.viewerDragDropMixin);
+viewer.dropError.addEventListener(function(dropHandler, name, error) {
+  console.log(error); window.alert(error);
+});
 </script>
 </body>
 </html>
