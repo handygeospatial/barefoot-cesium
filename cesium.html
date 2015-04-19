@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 <title></title>
 <script src="http://handygeospatial.github.io/barefoot-cesium/Build/Cesium/Cesium.js"></script>
-<script src="http://t.tilemap.jp.s3.amazonaws.com/cesium/JapanGSIImageryProvider.js"></script>
+<!--<script src="http://t.tilemap.jp.s3.amazonaws.com/cesium/JapanGSIImageryProvider.js"></script>-->
 <script src="http://t.tilemap.jp.s3.amazonaws.com/cesium/JapanGSITerrainProvider.js"></script>
 <style>
 @import url(http://handygeospatial.github.io/barefoot-cesium/Build/Cesium/Widgets/widgets.css);
@@ -21,6 +21,8 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
     url: 'http://cyberjapandata.gsi.go.jp/xyz/std/',
     credit: new Cesium.Credit('国土地理院')}),
   terrainProvider: new Cesium.JapanGSITerrainProvider({}),
+  mapProjection: new Cesium.WebMercatorProjection(),
+  sceneMode: Cesium.SceneMode.SCENE2D,
   animation: false, baseLayerPicker: false, fullscreenButton: true,
   geocoder: false, homeButton: false, infoBox: false,
   sceneModePicker: true, selectionIndicator: true,
