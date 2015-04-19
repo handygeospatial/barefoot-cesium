@@ -18,7 +18,7 @@ $ # python -m SimpleHTTPServer &
 $ # open http://localhost:8000
 ```
 # a shortcut
-If you use Cesium seldom...
+If you seldom use Cesium...
 ```zsh
 $ # mkdir -p /your/own/directory
 $ # cd /your/own/directory
